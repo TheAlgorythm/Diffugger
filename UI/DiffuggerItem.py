@@ -6,14 +6,18 @@ from IconButton import IconButton
 class ui_DiffuggerItemWidget:
 
     def setupUi(self, widget):
-        # widget.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
-
         self.mainLayout = QtWidgets.QHBoxLayout(widget)
 
+        # TODO min/max of QLineEdits
+
         self.nameLineEdit = QtWidgets.QLineEdit()
+        self.nameLineEdit.setMinimumWidth(60)
         self.passwordAction = self.nameLineEdit.addAction(QtGui.QIcon(Icons.getPwdField()), QtWidgets.QLineEdit.ActionPosition.TrailingPosition)
         self.passwordAction.setCheckable(True)
         self.mainLayout.addWidget(self.nameLineEdit)
+
+        self.nameSpacer = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        self.mainLayout.addSpacerItem(self.nameSpacer)
 
         self.value1LineEdit = QtWidgets.QLineEdit()
         self.value1ShowAction = self.value1LineEdit.addAction(QtGui.QIcon(Icons.getEye()), QtWidgets.QLineEdit.ActionPosition.TrailingPosition)
